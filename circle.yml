@@ -1,0 +1,15 @@
+machine:
+  timezone: "Asia/Tokyo"
+
+  node:
+    version: 6.1.0
+
+dependencies:
+  override:
+    - npm install
+  cache_directories:
+    - node_modules
+
+test:
+  override:
+    - npm run lint && npm run dist

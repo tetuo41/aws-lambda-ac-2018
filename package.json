@@ -1,0 +1,45 @@
+{
+  "private": true,
+  "name": "advent-clendar-notifier-lambda",
+  "version": "1.0.0",
+  "description": "AWS Lambda integrations Advent Clendar Slack Notifier",
+  "engines": {
+    "node": ">=6.10 <6.10",
+    "npm": "^3.10.0"
+  },
+  "scripts": {
+    "lint": "eslint --ignore-pattern node_modules src",
+    "lint:fix": "npm run lint -- --fix",
+    "dist": "gulp dist",
+    "clobber": "gulp clobber",
+    "local:ses-bounce": "better-npm-run local:advent-clendar-notifier"
+  },
+  "betterScripts": {
+    "local:advent-clendar-notifier": {
+      "command": "lambda-local -r ap-northeast-1 -l src/advent-clendar-notifier/index.js -e test-data/advent-clendar-notifier.js",
+      "env": {
+        "__DEV__": true
+      }
+    }
+  },
+  "author": "hiroki hatsushika",
+  "license": "MIT",
+  "devDependencies": {
+    "aws-sdk": "^2.373.0",
+    "better-npm-run": "0.1.1",
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^2.3.1",
+    "gulp": "^4.0.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-install": "^1.1.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-zip": "^3.2.0",
+    "lambda-local": "^1.5.2",
+    "uuid": "^3.3.2"
+  },
+  "dependencies": {
+    "rss-parser": "^3.5.4"
+  }
+}
