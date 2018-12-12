@@ -12,7 +12,7 @@
     "lint:fix": "npm run lint -- --fix",
     "dist": "gulp dist",
     "clobber": "gulp clobber",
-    "local:ses-bounce": "better-npm-run local:advent-clendar-notifier"
+    "local:advent-clendar-notifier": "better-npm-run local:advent-clendar-notifier"
   },
   "betterScripts": {
     "local:advent-clendar-notifier": {
@@ -38,8 +38,5 @@
     "gulp-zip": "^3.2.0",
     "lambda-local": "^1.5.2",
     "uuid": "^3.3.2"
-  },
-  "dependencies": {
-    "rss-parser": "^3.5.4"
   }
 }

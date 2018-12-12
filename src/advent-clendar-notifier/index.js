@@ -27,6 +27,8 @@ let webhook;
 const AWS = require('aws-sdk');
 const url = require('url');
 const https = require('https');
+let Parser = require('rss-parser');
+let parser = new Parser();
 
 function handleResponse (response, callback) {
   const statusCode = response.statusCode;
@@ -60,18 +62,19 @@ function post (requestURL, data, callback) {
   ).on('error', err => { callback(err); }).end(body);
 }
 
-
 function buildSlackMessage (data) {
   return {
     channel: ENV.channel,
     username: ENV.username,
     icon_emoji: ENV.icon_emoji,
     icon_url: ENV.icon_url,
+    text: data.link,
     attachments: [
       {
         fallback: data.title,
         title: data.title,
         title_link: data.link,
+        text: data.link
       }
     ]
   };
